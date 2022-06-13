@@ -4,3 +4,7 @@ main {
     box-sizing: border-box;
     min-height: 100vh;
 }
+
+.card {
+    width: 18rem;
+}
