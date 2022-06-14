@@ -9,7 +9,7 @@
                     <h5 class="card-title">{{$task->title}}</h5>
                     <p class="card-text">{{$task->description}}</p>
                     <span class="card-text">{{$task->status}}</span>
-                    <span class="card-text">{{$task->dueDate}}</span>
+                    <span class="card-text">{{date('m-d-Y', strtotime($task->dueDate))}}</span>
                 </div>
             </div>
         @endforeach
