@@ -18,4 +18,13 @@ class TaskController extends Controller
 
     }
 
+    //Returns show file
+    public function show($id)
+    {
+        //Finds record with the id entered and stores it is task var, if record does not exist a 404 page is served
+        $task = task::findOrFail($id);
+        return view('tasks.show', ['task' => $task]);
+
+    }
+
 }
