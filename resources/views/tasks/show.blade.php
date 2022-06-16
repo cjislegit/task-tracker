@@ -10,9 +10,8 @@
                     </p>
                     <div class="row">
                         <div class="col">Status: {{$task->status}}</div>
-                        <div class="col">Due: {{$task->dueDate}}</div>
                         <div class="col">
-                            <a href="" class="btn btn-outline-light float-end">Edit</a>
+                            <a href="{{route('tasks.edit', $task->id)}}" class="btn btn-outline-light float-end">Edit</a>
                         </div>
                     </div>
                 </div>
