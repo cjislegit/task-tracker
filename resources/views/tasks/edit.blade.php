@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
-    <form action="POST">
+    <form method="POST" action="/tasks/update/{{$task->id}}">
+        @csrf
+        @method('PUT')
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input name="title" type="text" id="title" class="form-control" value="{{$task->title}}">

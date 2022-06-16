@@ -22,3 +22,4 @@ Route::get('/', function () {
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
 Route::get('/tasks/edit/{id}', [TaskController::class, 'edit'])->name(('tasks.edit'));
+Route::put('/tasks/update/{id}', [TaskController::class, 'update']);

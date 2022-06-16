@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\task;
+use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -32,6 +33,16 @@ class TaskController extends Controller
     {
         $task = task::findOrFail($id);
         return view('tasks.edit', ['task' => $task]);
+    }
+
+    public function update(Request $req, $id)
+    {
+        $task = task::find($id);
+        $task->title = $req->input('title');
+        $task->description = $req->input('description');
+        $task->status = $req->input('status');
+        $task->update();
+        return redirect('/');
     }
 
 }
