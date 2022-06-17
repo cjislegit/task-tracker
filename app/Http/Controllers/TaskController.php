@@ -42,7 +42,23 @@ class TaskController extends Controller
         $task->description = $req->input('description');
         $task->status = $req->input('status');
         $task->update();
-        return redirect('/');
+        return redirect(route('tasks.index'));
+    }
+
+    public function create()
+    {
+        return view('tasks.create');
+    }
+
+    public function store()
+    {
+        $task = new task();
+        $task->title = request('title');
+        $task->status = request('status');
+        $task->description = request('description');
+        $task->save();
+        return redirect(route('tasks.index'))->with('mssg', 'Task Created');
+
     }
 
 }

@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 //Creates a the /tasks routes and runs the index function in the TaskController file, also names the route tasks.index
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
 Route::get('/tasks/edit/{id}', [TaskController::class, 'edit'])->name(('tasks.edit'));
 Route::put('/tasks/update/{id}', [TaskController::class, 'update']);
+Route::post('tasks', [TaskController::class, 'store']);
