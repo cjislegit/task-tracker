@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
+<div class="container p-5 mb-4 rounded-3">
     <form method="POST" action="/tasks">
         @csrf
         <div class="mb-3">
