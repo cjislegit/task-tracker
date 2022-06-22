@@ -38,9 +38,9 @@ class TaskController extends Controller
     public function update(Request $req, $id)
     {
         $task = task::find($id);
-        $task->title = $req->input('title');
-        $task->description = $req->input('description');
-        $task->status = $req->input('status');
+        $task->title = htmlspecialchars(strip_tags($req->input('title')));
+        $task->description = htmlspecialchars(strip_tags($req->input('description')));
+        $task->status = htmlspecialchars(strip_tags($req->input('status')));
         $task->update();
         return redirect(route('tasks.index'));
     }
@@ -53,9 +53,9 @@ class TaskController extends Controller
     public function store()
     {
         $task = new task();
-        $task->title = request('title');
-        $task->status = request('status');
-        $task->description = request('description');
+        $task->title = htmlspecialchars(strip_tags(request('title')));
+        $task->status = htmlspecialchars(strip_tags(request('status')));
+        $task->description = htmlspecialchars(strip_tags(request('description')));
         $task->save();
         return redirect(route('tasks.index'))->with('mssg', 'Task Created');
 
