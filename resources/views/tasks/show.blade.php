@@ -11,7 +11,12 @@
                     <div class="row">
                         <div class="col">Status: {{$task->status}}</div>
                         <div class="col">
-                            <a href="{{route('tasks.edit', $task->id)}}" class="btn btn-outline-light float-end">Edit</a>
+                            <form action="{{route('tasks.delete', $task->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-outline-light float-end">Delete</button>
+                            </form>
+                            <a href="{{route('tasks.edit', $task->id)}}" class="btn btn-outline-light float-end me-2">Edit</a>
                         </div>
                     </div>
                 </div>

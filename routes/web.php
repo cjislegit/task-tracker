@@ -25,6 +25,8 @@ Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show')->
 Route::get('/tasks/edit/{id}', [TaskController::class, 'edit'])->name(('tasks.edit'))->middleware('auth');
 Route::put('/tasks/update/{id}', [TaskController::class, 'update'])->middleware('auth');
 Route::post('tasks', [TaskController::class, 'store']);
+Route::delete('tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.delete')->middleware('auth');
+
 Auth::routes([
     'register' => false,
 ]);
