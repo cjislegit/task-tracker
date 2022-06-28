@@ -80,7 +80,7 @@
                 </ul>
                 <hr />
                 <div>
-                    <strong>User</strong>
+                    <strong>{{ Route::has('login') ? "Guest" : Auth::user()->name }}</strong>
                 </div>
             </div>
             @yield('content')
