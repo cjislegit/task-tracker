@@ -79,8 +79,8 @@
                     </li>
                 </ul>
                 <hr />
-                <div>
-                    <strong>{{ Route::has('login') ? "Guest" : Auth::user()->name }}</strong>
+                <div class="d-flex justify-content-center">
+                    <strong>{{ isset(Auth::user()->name) ? Auth::user()->name : 'Guest' }}</strong>
                 </div>
             </div>
             @yield('content')
